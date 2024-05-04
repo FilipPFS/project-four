@@ -17,7 +17,8 @@
 	<meta property="og:title" content="Nina Carducci - Studio Photo à Bordeaux">
 	<meta property="og:description"
 		content="Découvrez l'art de la photographie chez Nina Carducci, votre studio photo à Bordeaux. Capturons ensemble vos moments spéciaux avec des séances photo uniques et professionnelles.">
-	<meta property="og:image" content="https://media.discordapp.net/attachments/524513757901357056/1234196597626245140/nina.webp?ex=662fdaa7&is=662e8927&hm=073a72cf305bf04213869fd9e3712aada539ee3fdb2292f9cba4aa1fa89320f2&=&format=webp&width=570&height=568">
+	<meta property="og:image"
+		content="https://media.discordapp.net/attachments/524513757901357056/1234196597626245140/nina.webp?ex=662fdaa7&is=662e8927&hm=073a72cf305bf04213869fd9e3712aada539ee3fdb2292f9cba4aa1fa89320f2&=&format=webp&width=570&height=568">
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" defer>
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,10 +28,7 @@
 		rel="stylesheet">
 	<meta charset="UTF-8">
 	<script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="./assets/maugallery.js"></script>
-	<script src="./assets/scripts.js"></script>
+	<script src="./assets/gallery.js"></script>
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -41,12 +39,16 @@
 				"@type": "PostalAddress",
 				"addressLocality": "Bordeaux",
 				"addressRegion": "Nouvelle-Aquitaine",
-				"streetAddress": "68 avenue Alsace-Lorraine, 33200"
+				"streetAddress": "68 avenue Alsace-Lorraine",
+				"postalCode": "33200",
+				"addressCountry": "FR"
 			},
 			"telephone": "05 56 67 78 89",
 			"openingHours": [
 				"Mo-Fr 10:00-19:00"
-			]
+			],
+			"priceRange": "De 50€ à 400€",
+			"image": "https://i.ibb.co/ByVtP5P/camera.webp"
 		}
 		</script>
 </head>
@@ -109,13 +111,13 @@
 	</div>
 	<div id="about">
 		<div class="picture left">
-			<img src="./assets/images/nina.webp" alt="...">
+			<img src="./assets/images/nina.webp" alt="La photo de Nina Carducci">
 		</div>
 		<div id="about-me">
-			<h3 class="about-me__title">About Me</h3>
-			<h6 class="about-me__introduction">Becoming a photographer was an easy choice for me. It felt like it was my
+			<h4 class="about-me__title">About Me</h4>
+			<h5 class="about-me__introduction">Becoming a photographer was an easy choice for me. It felt like it was my
 				destiny. Capturing a moment, an emotion, a situation, a place, or a glimmer of light and making them
-				immortal, that’s what drives me.</h6>
+				immortal, that’s what drives me.</h5>
 			<p>We spend our lives searching for happiness, and once we find it, we want to celebrate it as a photograph
 				to share with the people we love or to show to as many people as possible.
 				This is what I have to offer, capturing these beautiful moments from my perspective, my approach, and my
@@ -125,27 +127,13 @@
 	</div>
 	<div id="gallery">
 		<h3 class="title">Portfolio</h3>
-		<div class="container py-3">
-			<div class="gallery" style="display: none">
-				<img data-gallery-tag="Concerts" class="gallery-item"
-					src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Business" class="gallery-item"
-					src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Business" class="gallery-item"
-					src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Weddings" class="gallery-item"
-					src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Portraits" class="gallery-item"
-					src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Weddings" class="gallery-item" src="./assets/images/gallery/mariage/image1.webp"
-					alt="..." />
-				<img data-gallery-tag="Portraits" class="gallery-item"
-					src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.webp" alt="..." />
-				<img data-gallery-tag="Concerts" class="gallery-item"
-					src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp" / alt="...">
-				<img data-gallery-tag="Business" class="gallery-item"
-					src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp" alt="..." />
-			</div>
+		<div id="filters"></div>
+		<div class="gallery-images"></div>
+		<div class="overlay"></div>
+		<div class="modal" id="modal">
+			<img id="modal-image" class="modal-content" src="" alt="">
+			<a id="prevBtn">&#10094;</a>
+			<a id="nextBtn">&#10095;</a>
 		</div>
 		<div class="quote">
 			<figure>
@@ -159,7 +147,7 @@
 		</div>
 	</div>
 	<div id="services">
-		<h3 class="title">My services</h3>
+		<h2 class="title">My services</h2>
 		<div class="container">
 			<div class="service">
 				<div class="service__description">
@@ -208,7 +196,7 @@
 	<div id="contact">
 		<div class="container">
 			<div class="form-container">
-				<h3>Have a question? Need a quote?</h3>
+				<h2>Have a question? Need a quote?</h2>
 				<p> Don’t hesitate to contact me! I’ll get back to you within 24 hours.</p>
 				<form action="" method="post">
 					<label for="name">Name</label>
