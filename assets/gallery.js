@@ -188,30 +188,37 @@ document.addEventListener("DOMContentLoaded", function () {
     
                 switch (filterName) {
                     case "All":
+                        galleryImages.style.justifyContent = "center";
                         galleryImages.innerHTML = "";
                         getImages(images);
                         break;
                     case "Concerts":
                         const concerts = images.filter(image => image.category === "concerts");
-                        galleryImages.style.justifyContent = "flex-start";
+                        if (window.innerWidth > 1100) {
+                            galleryImages.style.justifyContent = "flex-start";
+                        }
                         galleryImages.innerHTML = "";
                         getImages(concerts);
                         break;
                     case "Business":
                         const business = images.filter(image => image.category === "business");
-                        galleryImages.style.justifyContent = "flex-start";
+                        galleryImages.style.justifyContent = "center";
                         galleryImages.innerHTML = "";
                         getImages(business);
                         break;
                     case "Weddings":
                         const weddings = images.filter(image => image.category === "weddings");
-                        galleryImages.style.justifyContent = "flex-start";
+                        if (window.innerWidth > 1100) {
+                            galleryImages.style.justifyContent = "flex-start";
+                        }
                         galleryImages.innerHTML = "";
                         getImages(weddings);
                         break;
                     case "Portraits":
                         const portraits = images.filter(image => image.category === "portraits");
-                        galleryImages.style.justifyContent = "flex-start";
+                        if (window.innerWidth > 1100) {
+                            galleryImages.style.justifyContent = "flex-start";
+                        }
                         galleryImages.innerHTML = "";
                         getImages(portraits);
                         break;
