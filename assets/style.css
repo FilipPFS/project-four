@@ -179,7 +179,6 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-	/* Semi-transparent black */
 	display: block;
 	z-index: 999;
 	display: none;
@@ -535,7 +534,6 @@ input[type="submit"] {
 	.gallery-images img {
 		width: 95%;
 		height: calc(100vw - 20px);
-		/* You can adjust the 20px according to your layout's padding/margin */
 		object-fit: cover;
 	}
 
@@ -543,6 +541,7 @@ input[type="submit"] {
 		top: 50%;
 		padding: 10px;
 		width: 90%;
+		max-height: 90vh;
 		border-radius: 5px;
 	}
 

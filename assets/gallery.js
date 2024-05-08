@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Atmosphere sur un concert"
         },
         {
-            category: "concerts",
-            img: "./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp",
-            alt: "Chanteur dans un concert"
-        },
-        {
             category: "business",
             img: "./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp",
             alt: "Moniseur en costume"
@@ -22,14 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Une femme dans une reunion"
         },
         {
-            category: "business",
-            img: "./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp",
-            alt: "Une femme qui aime son travail"
-        },
-        {
             category: "weddings",
             img: "./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp",
             alt: "Les mains d'un couple"
+        },
+        {
+            category: "portraits",
+            img: "./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp",
+            alt: "Un homme posant"
         },
         {
             category: "weddings",
@@ -38,13 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             category: "portraits",
-            img: "./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp",
-            alt: "Un homme posant"
-        },
-        {
-            category: "portraits",
             img: "./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.webp",
             alt: "Une femme posant"
+        },
+        {
+            category: "concerts",
+            img: "./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp",
+            alt: "Chanteur dans un concert"
+        },
+        {
+            category: "business",
+            img: "./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp",
+            alt: "Une femme qui aime son travail"
         },
     ];
 
@@ -56,9 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "block";
         overlay.style.display = "block";
         modalImg.src = imageSrc;
-        modal.style.height = 'auto'; // Reset height to auto to allow resizing
+        modal.style.height = 'auto';
         disableScroll();
-        
     }
 
     overlay.addEventListener("click", () => {
@@ -127,9 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         body.style.top = `-${scrollPosition[1]}px`;
     }
     
-    // Function to enable scrolling
     function enableScroll() {
-        // Restore scroll position
         const body = document.getElementsByTagName("body")[0];
         body.style.overflow = "initial";
         body.style.position = "initial";
