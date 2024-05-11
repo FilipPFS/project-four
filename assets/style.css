@@ -154,7 +154,8 @@ body {
 }
 
 #filters button:hover {
-	background-color: orange;
+	background-color: rgb(13, 71, 13);
+	color: white;
 }
 
 .gallery-images {
@@ -243,8 +244,8 @@ body {
 }
 
 .activeFilter {
-	background-color: #FFA500;
-	color: #333333;
+	background-color: rgb(13, 74, 13);
+	color: white;
 }
 
 .mg-prev,

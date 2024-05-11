@@ -155,10 +155,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const weddings = document.createElement("button");
     const portraits = document.createElement("button");
 
-    all.innerText = "All";
+    all.innerText = "Tous";
     concerts.innerText = "Concerts";
-    business.innerText = "Business";
-    weddings.innerText = "Weddings";
+    business.innerText = "Entreprises";
+    weddings.innerText = "Marriages";
     portraits.innerText = "Portraits";
 
     filters.appendChild(all);
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 prevClickedButton = event.target;
     
                 switch (filterName) {
-                    case "All":
+                    case "Tous":
                         galleryImages.style.justifyContent = "center";
                         galleryImages.innerHTML = "";
                         getImages(images);
@@ -197,13 +197,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         galleryImages.innerHTML = "";
                         getImages(concerts);
                         break;
-                    case "Business":
+                    case "Entreprises":
                         const business = images.filter(image => image.category === "business");
                         galleryImages.style.justifyContent = "center";
                         galleryImages.innerHTML = "";
                         getImages(business);
                         break;
-                    case "Weddings":
+                    case "Marriages":
                         const weddings = images.filter(image => image.category === "weddings");
                         if (window.innerWidth > 1100) {
                             galleryImages.style.justifyContent = "flex-start";
