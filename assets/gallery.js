@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Atmosphere sur un concert"
         },
         {
-            category: "business",
+            category: "entreprises",
             img: "./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp",
             alt: "Moniseur en costume"
         },
         {
-            category: "business",
+            category: "entreprises",
             img: "./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp",
             alt: "Une femme dans une reunion"
         },
         {
-            category: "weddings",
+            category: "marriages",
             img: "./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp",
             alt: "Les mains d'un couple"
         },
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Un homme posant"
         },
         {
-            category: "weddings",
+            category: "marriages",
             img: "./assets/images/gallery/mariage/image1.webp",
             alt: "Un couple heureux et marié"
         },
@@ -42,11 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Chanteur dans un concert"
         },
         {
-            category: "business",
+            category: "entreprises",
             img: "./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp",
             alt: "Une femme qui aime son travail"
         },
     ];
+
+    // Modal et navigation entre les images
 
     const modal = document.getElementById("modal");
     const overlay = document.querySelector(".overlay");
@@ -81,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showImage(images) {
         const image = images[currentImageIndex];
-        openModal(image.img, image.category);
+        openModal(image.img);
     }
 
     function showNextImage(images) {
@@ -96,24 +98,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("prevBtn").addEventListener("click", () => {
         const filterName = document.querySelector(".activeFilter").innerText;
-        if(!filterName || filterName === "All") {
+        if(!filterName || filterName === "Tous") {
             showPreviousImage(images);
         } else {
             const filteredImages = images.filter(image => image.category === filterName.toLowerCase());
-            console.log("Filter images", filteredImages);
             showPreviousImage(filteredImages);
         }
     });
 
     document.getElementById("nextBtn").addEventListener("click", () => {
-        const filterName = document.querySelector(".activeFilter").innerText || "All" ;
-        if(filterName === "All") {
+        const filterName = document.querySelector(".activeFilter").innerText || "Tous" ;
+        if(filterName === "Tous") {
             showNextImage(images);
         } else {
             const filteredImages = images.filter(image => image.category === filterName.toLowerCase());
             showNextImage(filteredImages);
         }
     });
+
+    // Le scroll en ouvrant le modal
 
     function disableScroll() {
         const scrollPosition = [
@@ -135,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo(0, -scrollPosition);
     }
 
+    // Affichage de la gallerie
+
     function getImages(images) {
         images.forEach((image, index) => {
             const theImage = document.createElement("img");
@@ -146,6 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     getImages(images);
+
+
+    // Filters
 
     const filters = document.getElementById("filters");
 
@@ -198,13 +206,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         getImages(concerts);
                         break;
                     case "Entreprises":
-                        const business = images.filter(image => image.category === "business");
+                        const business = images.filter(image => image.category === "entreprises");
                         galleryImages.style.justifyContent = "center";
                         galleryImages.innerHTML = "";
                         getImages(business);
                         break;
                     case "Marriages":
-                        const weddings = images.filter(image => image.category === "weddings");
+                        const weddings = images.filter(image => image.category === "marriages");
                         if (window.innerWidth > 1100) {
                             galleryImages.style.justifyContent = "flex-start";
                         }
